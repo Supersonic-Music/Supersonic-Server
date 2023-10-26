@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ artist }}'s Albums</title>
+</head>
+<body>
+    <h1>{{ artist }}'s Albums</h1>
+    <ul>
+        <li><a href="/"><b>Back to Artists</b></a></li>  <!-- Add an "up directory" link -->
+        {% for album in albums %}
+            <li><a href="/{{ artist }}/{{ album }}">{{ album }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

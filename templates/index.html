@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Music Library</title>
+</head>
+<body>
+    <h1>Sonic Screwdriver - Music Index</h1>
+    <ul>
+        <li><a href="http://localhost:4321"><b>Open Rattlesnake</b></a></li>
+        {% for artist in artists %}
+            <li><a href="/{{ artist }}">{{ artist }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
