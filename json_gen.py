@@ -5,7 +5,7 @@ import json
 def generate_artist_json(MUSIC_DIR):
     artists = os.listdir(MUSIC_DIR)
     artist_data = [{'name': artist} for artist in artists]
-    with open('music_index/artists.json', 'w') as file:  # Save in the "music_index" folder
+    with open(f'{MUSIC_DIR}/{CAL_DIR}/meta/artists.json', 'w') as file:  # Save in the "music_index" folder
         json.dump(artist_data, file)
 
 # Function to generate a JSON file for albums of a specific artist
@@ -17,7 +17,7 @@ def generate_album_json(artist, MUSIC_DIR):
 
     albums = sorted([item for item in os.listdir(artist_dir) if os.path.isdir(os.path.join(artist_dir, item))])
     album_data = [{'name': album} for album in albums]
-    with open(f'music_index/albums/{artist}_albums.json', 'w') as file:  # Save in the "music_index" folder
+    with open(f'{MUSIC_DIR}/{CAL_DIR}/albums/{artist}_albums.json', 'w') as file:  # Save in the "music_index" folder
         json.dump(album_data, file)
 
 # Function to generate a JSON file for songs of a specific album
@@ -30,5 +30,5 @@ def generate_songs_json(artist, album, MUSIC_DIR):
 
     songs = sorted(os.listdir(album_dir))
     song_data = [{'name': song} for song in songs]
-    with open(f'music_index/songs/{artist}_{album}_songs.json', 'w') as file:  # Save in the "music_index" folder
+    with open(f'{MUSIC_DIR}/{CAL_DIR}/songs/{artist}_{album}_songs.json', 'w') as file:  # Save in the "music_index" folder
         json.dump(song_data, file)
