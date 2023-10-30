@@ -1,0 +1,1 @@
+MUSIC_DIR = "/home/deck/Music"

@@ -30,4 +30,5 @@ def scan_music(MUSIC_DIR, CAL_DIR):
             json_gen.generate_songs_json(artist, album, MUSIC_DIR, CAL_DIR)
 
 print("scan")
-scan_music("/home/deck/Music", ".cal_sonic_library")
+from config import MUSIC_DIR
+scan_music(MUSIC_DIR, ".cal_sonic_library")

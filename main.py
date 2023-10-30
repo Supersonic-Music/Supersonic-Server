@@ -5,7 +5,7 @@ import urllib.parse
 app = Flask(__name__)
 
 # Define the directory where your music files are stored
-MUSIC_DIR = "/home/deck/Music"
+from config import MUSIC_DIR
 
 # Create a route to serve music files
 @app.route('/music/<path:filename>')
