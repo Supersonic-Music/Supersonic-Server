@@ -1,11 +1,15 @@
 from flask import Flask, send_file, render_template, abort
+from info import ProgramData
+ProgramData = ProgramData()
+from config import UserOptions
+UserOptions = UserOptions()
 import os
 import urllib.parse
 
 app = Flask(__name__)
 
 # Define the directory where your music files are stored
-from config import MUSIC_DIR
+MUSIC_DIR = UserOptions.MUSIC_DIR
 
 # Create a route to serve music files
 @app.route('/music/<path:filename>')
@@ -21,7 +25,8 @@ def serve_music(filename):
 @app.route('/')
 def index():
     artists = os.listdir(MUSIC_DIR)
-    return render_template('index.html', artists=artists)
+    PROGRAM_NAME = ProgramData.PROGRAM_NAME
+    return render_template('index.html', artists=artists, PROGRAM_NAME=PROGRAM_NAME)
 
 # Create a route to list albums for a specific artist
 @app.route('/<artist>/')

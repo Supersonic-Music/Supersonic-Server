@@ -3,5 +3,5 @@ from dataclasses import dataclass
 
 @dataclass
 class ProgramData:
-    program_name: str = "Sonic Screwdriver"
-    program_version: str = "0.1"
+    PROGRAM_NAME: str = "Sonic Screwdriver"
+    PROGRAM_VERSION: str = "0.1"
