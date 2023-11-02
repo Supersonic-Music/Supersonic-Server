@@ -1,4 +1,6 @@
 import json_gen, json, os
+from config import UserOptions
+UserOptions = UserOptions()
 
 def scan_music(MUSIC_DIR, CAL_DIR):
     # Generate the JSON data for artists
@@ -29,5 +31,5 @@ def scan_music(MUSIC_DIR, CAL_DIR):
             json_gen.generate_songs_json(artist, album, MUSIC_DIR, CAL_DIR)
 
 print("scan")
-from config import MUSIC_DIR
+MUSIC_DIR = UserOptions.MUSIC_DIR
 scan_music(MUSIC_DIR, ".cal_sonic_library")
