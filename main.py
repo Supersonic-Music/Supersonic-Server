@@ -3,8 +3,7 @@ from info import ProgramData
 ProgramData = ProgramData()
 from config import UserOptions
 UserOptions = UserOptions()
-import os
-import urllib.parse
+import urllib.parse, os
 
 app = Flask(__name__)
 
