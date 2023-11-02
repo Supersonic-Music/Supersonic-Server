@@ -1,4 +1,4 @@
-# sonic-screwdriver
+# Sonic Screwdriver
 Simple music server, written in Python.
 ## Features
 - Sonic Screwdriver has been thoroughly tested to work with thousands of songs well...ish.
