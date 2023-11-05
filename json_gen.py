@@ -30,7 +30,7 @@ def generate_songs_json(artist, album, MUSIC_DIR, CAL_DIR):
         return  # Album directory not found
 
     songs = sorted(os.listdir(album_dir))
-    song_data = [{'name': song, 'path': song} for song in songs]
+    song_data = [{'name': song.split(".")[0], 'path': song} for song in songs]
     print(song_data)
     with open(os.path.join(MUSIC_DIR, CAL_DIR, 'songs', f'{artist}_{album}_songs.json'), 'w') as file:  # Save in the "music_index" folder
         json.dump(song_data, file)
