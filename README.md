@@ -7,6 +7,13 @@ Simple music server, written in [Python](https://python.org).
 - Easily hackable. You can change almost anything about this program.
 ## Caveats
 - Does **not** work with the [*Raspberry Pi*](https://www.raspberrypi.com/) because of upstream issues with [pillow](https://pypi.org/project/Pillow/).
+## To-Do (In order of priority)
+- Proper playlist functionality
+- More fleshed out plugin system
+- Discord Rich Presence
+- User Accounts
+- Recommendation Algorithm / Listening History
+- Scrobbling
 ## Clients
 ### [paperback](https://github.com/yuckdevchan/paperback)
 Paperback is a simple [Sonic Screwdriver](https://github.com/yuckdevchan/sonic-screwdriver) client that's made by me. It is not feature-packed but it does one thing and one thing alright.https://www.raspberrypi.com/
