@@ -10,5 +10,7 @@ Simple music server, written in [Python](https://python.org).
 ## Clients
 ### [paperback](https://github.com/yuckdevchan/paperback)
 Paperback is a simple [Sonic Screwdriver](https://github.com/yuckdevchan/sonic-screwdriver) client that's made by me. It is not feature-packed but it does one thing and one thing alright.https://www.raspberrypi.com/
+### [clown-tunes](https://github.com/circus-real/clown-tunes.)
+Clown Tunes is a basic CAL viewer with lightweight music playback capability. It's feature-set is akin to the built-in web UI but in the form of a [Sonic Screwdriver](https://github.com/yuckdevchan/sonic-screwdriver) client.
 ## Licensing
 Remember, Sonic Screwdriver is **Free Software**. You may modify, distribute and use Sonic Screwdriver for commercial purposes but you must retain the [**LICENSE**](https://spdx.org/licenses/MIT.html) included with the program. See [**LICENSE**](https://spdx.org/licenses/MIT.html) for more details.
