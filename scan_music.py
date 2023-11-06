@@ -32,4 +32,5 @@ def scan_music(MUSIC_DIR, CAL_DIR):
 
 print("scan")
 MUSIC_DIR = UserOptions.MUSIC_DIR
+CAL_DIR = UserOptions.CAL_DIR
 scan_music(MUSIC_DIR, ".cal_sonic_library")

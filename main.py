@@ -9,6 +9,7 @@ app = Flask(__name__)
 
 # Define the directory where your music files are stored
 MUSIC_DIR = UserOptions.MUSIC_DIR
+CAL_DIR = UserOptions.CAL_DIR
 
 # Create a route to serve music files
 @app.route('/music/<path:filename>')
@@ -53,4 +54,7 @@ def album_songs(artist, album):
     return render_template('album.html', artist=artist, album=album, songs=songs)
 
 if __name__ == '__main__':
+    if UserOptions.SCAN_COLLECTION_ON_STARTUP == True:
+        from scan_music import scan_music
+        scan_music(MUSIC_DIR, CAL_DIR)
     app.run(host='0.0.0.0', port=6969)
