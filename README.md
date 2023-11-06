@@ -2,7 +2,7 @@
 Simple music server, written in [Python](https://python.org).
 ## Features
 - Sonic Screwdriver has been thoroughly tested to work with thousands of songs well...ish.
-- Works well on Linux, Windows and MacOS. See list of tested systems [here](https://sonic.davros.io/getting-started/Supported-Systems).
+- Works well on Linux, Windows and MacOS. See list of tested systems [here](https://sonic.davros.io/getting-started/supported-systems/).
 - Hosts a minimal Web UI for admin purposes and for checking the music index is correct.
 - Easily hackable. You can change almost anything about this program.
 ## Caveats
