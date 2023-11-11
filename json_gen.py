@@ -3,7 +3,25 @@ import os, json
 # Function to generate a JSON file for artists
 def generate_artist_json(MUSIC_DIR, CAL_DIR):
     artists = os.listdir(MUSIC_DIR)
-    artist_data = [{'name': artist} for artist in artists]
+    plugins = []
+    artist_data = []
+    for artist in artists:
+        print(artist)
+        artist_data.append({'name': artist})  # Corrected line
+        if artist.startswith('.'):
+            plugins.append(artist)
+        if artist == "Playlists":
+            found_playlists = True
+    print(artist_data)
+    start_of_list_ish = 0
+    for plugin in plugins:
+        artist_data.remove({'name': plugin})
+        artist_data.insert(start_of_list_ish, {'name': plugin})
+        start_of_list_ish += 1
+    if found_playlists:
+        artist_data.remove({'name': "Playlists"})
+        artist_data.insert(start_of_list_ish, {'name': "Playlists"})
+        start_of_list_ish += 1
     print(artist_data)
     with open(os.path.join(MUSIC_DIR, CAL_DIR, 'meta', 'artists.json'), 'w') as file:  # Save in the "music_index" folder
         json.dump(artist_data, file)
