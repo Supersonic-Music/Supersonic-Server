@@ -1,4 +1,5 @@
-import os, json
+import os, json, config
+from colorama import Fore
 
 # Function to generate a JSON file for artists
 def generate_artist_json(MUSIC_DIR, CAL_DIR):
@@ -12,6 +13,8 @@ def generate_artist_json(MUSIC_DIR, CAL_DIR):
             plugins.append(artist)
         if artist == "Playlists":
             found_playlists = True
+        else:
+            found_playlists = False
     print(artist_data)
     start_of_list_ish = 0
     for plugin in plugins:
@@ -48,7 +51,14 @@ def generate_songs_json(artist, album, MUSIC_DIR, CAL_DIR):
         return  # Album directory not found
 
     songs = sorted(os.listdir(album_dir))
-    song_data = [{'name': song.split(".")[0], 'path': song} for song in songs]
-    print(song_data)
+    song_data = []
+    utc_removed = 0
+    for song in songs:
+        name = song.split(".")[0]
+        if name.endswith(" UTC)") and config.UserOptions.AUTO_REMOVE_UTC_TIMESTAMP:
+            name = name.rsplit(' (', -1)[0]
+            utc_removed += 1
+        song_data.append({'name': name, 'path': song})
     with open(os.path.join(MUSIC_DIR, CAL_DIR, 'songs', f'{artist}_{album}_songs.json'), 'w') as file:  # Save in the "music_index" folder
         json.dump(song_data, file)
+    return utc_removed
