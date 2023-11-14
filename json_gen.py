@@ -7,7 +7,6 @@ def generate_artist_json(MUSIC_DIR, CAL_DIR):
     plugins = []
     artist_data = []
     for artist in artists:
-        print(artist)
         artist_data.append({'name': artist})  # Corrected line
         if artist.startswith('.'):
             plugins.append(artist)
@@ -15,7 +14,6 @@ def generate_artist_json(MUSIC_DIR, CAL_DIR):
             found_playlists = True
         else:
             found_playlists = False
-    print(artist_data)
     start_of_list_ish = 0
     for plugin in plugins:
         artist_data.remove({'name': plugin})
@@ -25,7 +23,7 @@ def generate_artist_json(MUSIC_DIR, CAL_DIR):
         artist_data.remove({'name': "Playlists"})
         artist_data.insert(start_of_list_ish, {'name': "Playlists"})
         start_of_list_ish += 1
-    print(artist_data)
+    print(f"✅ Found {len(artist_data)} Artists.") # Found number of artists
     with open(os.path.join(MUSIC_DIR, CAL_DIR, 'meta', 'artists.json'), 'w') as file:  # Save in the "music_index" folder
         json.dump(artist_data, file)
 
@@ -38,12 +36,11 @@ def generate_album_json(artist, MUSIC_DIR, CAL_DIR):
 
     albums = sorted([item for item in os.listdir(artist_dir) if os.path.isdir(os.path.join(artist_dir, item))])
     album_data = [{'name': album} for album in albums]
-    print(album_data)
     with open(os.path.join(MUSIC_DIR, CAL_DIR, 'albums', f'{artist}_albums.json'), 'w') as file:  # Save in the "music_index" folder
         json.dump(album_data, file)
 
 # Function to generate a JSON file for songs of a specific album
-def generate_songs_json(artist, album, MUSIC_DIR, CAL_DIR):
+def generate_songs_json(artist, album, MUSIC_DIR, CAL_DIR, number_of_songs):
     artist_dir = os.path.join(MUSIC_DIR, artist)
     album_dir = os.path.join(artist_dir, album)
 
@@ -54,6 +51,7 @@ def generate_songs_json(artist, album, MUSIC_DIR, CAL_DIR):
     song_data = []
     utc_removed = 0
     for song in songs:
+        number_of_songs += 1
         name = song.split(".")[0]
         if name.endswith(" UTC)") and config.UserOptions.AUTO_REMOVE_UTC_TIMESTAMP:
             name = name.rsplit(' (', -1)[0]
@@ -61,4 +59,5 @@ def generate_songs_json(artist, album, MUSIC_DIR, CAL_DIR):
         song_data.append({'name': name, 'path': song})
     with open(os.path.join(MUSIC_DIR, CAL_DIR, 'songs', f'{artist}_{album}_songs.json'), 'w') as file:  # Save in the "music_index" folder
         json.dump(song_data, file)
-    return utc_removed
+    song_stats = [utc_removed, number_of_songs]
+    return song_stats
