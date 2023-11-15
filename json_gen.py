@@ -4,6 +4,7 @@ from colorama import Fore
 # Function to generate a JSON file for artists
 def generate_artist_json(MUSIC_DIR, CAL_DIR):
     artists = os.listdir(MUSIC_DIR)
+    artists.sort()
     plugins = []
     artist_data = []
     for artist in artists:
