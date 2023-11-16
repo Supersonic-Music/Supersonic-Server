@@ -1,3 +1,5 @@
+<img alt="Sonic Server Logo" src="https://github.com/yuckdevchan/Supersonic-Server/assets/60288171/e79ddd63-9945-448d-8793-b300907010a5" height="90">
+
 # Supersonic Server
 Simple music server, written in [Python](https://python.org).
 ## Features
