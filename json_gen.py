@@ -1,5 +1,4 @@
 import os, json, config
-from colorama import Fore
 
 # Function to generate a JSON file for artists
 def generate_artist_json(MUSIC_DIR, CAL_DIR):
@@ -9,7 +8,7 @@ def generate_artist_json(MUSIC_DIR, CAL_DIR):
     artist_data = []
     for artist in artists:
         artist_data.append({'name': artist})  # Corrected line
-        if artist.startswith('.'):
+        if artist.startswith('.') or artist.endswith('.sonic'):
             plugins.append(artist)
         if artist == "Playlists":
             found_playlists = True
