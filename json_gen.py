@@ -24,7 +24,7 @@ def generate_artist_json(MUSIC_DIR, CAL_DIR):
         artist_data.remove({'name': "Playlists"})
         artist_data.insert(start_of_list_ish, {'name': "Playlists"})
         start_of_list_ish += 1
-    print(f"✅ Found {len(artist_data)} Artists.") # Found number of artists
+    print(f"✅ Found {len(artist_data)} Artists. 🧑‍🎨") # Found number of artists
     with open(os.path.join(MUSIC_DIR, CAL_DIR, 'meta', 'artists.json'), 'w') as file:  # Save in the "music_index" folder
         json.dump(artist_data, file)
 
@@ -36,9 +36,17 @@ def generate_album_json(artist, MUSIC_DIR, CAL_DIR):
         return  # Artist directory not found
 
     albums = sorted([item for item in os.listdir(artist_dir) if os.path.isdir(os.path.join(artist_dir, item))])
-    album_data = [{'name': album} for album in albums]
+    # album_data = [{'name': album} for album in albums
+    album_data = []
+    album_data_for_meta = []
+    album_data_for_meta.append({'artist': artist})
+    for album in albums:
+        album_dir = os.path.join(artist_dir, album)
+        album_data.append({'name': album})
+        album_data_for_meta.append({'name': album})
     with open(os.path.join(MUSIC_DIR, CAL_DIR, 'albums', f'{artist}_albums.json'), 'w') as file:  # Save in the "music_index" folder
         json.dump(album_data, file)
+    return album_data_for_meta
 
 # Function to generate a JSON file for songs of a specific album
 def generate_songs_json(artist, album, MUSIC_DIR, CAL_DIR, number_of_songs):

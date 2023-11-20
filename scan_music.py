@@ -15,9 +15,11 @@ def scan_music(MUSIC_DIR, CAL_DIR):
     utc_removed_fr = 0
     number_of_albums = 0
     number_of_songs = 0
+    all_albums = []
     for artist in list_of_artists:
         # Generate the JSON data for albums of each artist
-        json_gen.generate_album_json(artist, MUSIC_DIR, CAL_DIR)
+        album_data = json_gen.generate_album_json(artist, MUSIC_DIR, CAL_DIR)
+        all_albums.append(album_data)
         # Read the albums' JSON data into a Python list
         with open(os.path.join(MUSIC_DIR, CAL_DIR, 'albums', f'{artist}_albums.json'), 'r') as album_file:
             albums_data = json.load(album_file)
@@ -29,10 +31,12 @@ def scan_music(MUSIC_DIR, CAL_DIR):
             # Generate the JSON data for songs of each album
             utc_removed_fr += json_gen.generate_songs_json(artist, album, MUSIC_DIR, CAL_DIR, number_of_songs)[0]
             number_of_songs = json_gen.generate_songs_json(artist, album, MUSIC_DIR, CAL_DIR, number_of_songs)[1]
-    print(f"✅ Found {number_of_albums} Albums.")
-    print(f"✅ Found {number_of_songs} Songs.")
-    print(f"✅ Removed UTC timestamps from {utc_removed_fr} songs. This behaviour can be disabled in config.py.")
-    print(f"✅ Finished Scanning {MUSIC_DIR}")
+    with open(os.path.join(MUSIC_DIR, CAL_DIR, 'meta', 'albums.json'), 'w') as albums_meta_file:
+        json.dump(all_albums, albums_meta_file)
+    print(f"✅ Found {number_of_albums} Albums. 💿")
+    print(f"✅ Found {number_of_songs} Songs. 🎵")
+    print(f"✅ Removed UTC timestamps from {utc_removed_fr} songs. 🕒 This behaviour can be disabled in config.py.")
+    print(f"✅ Finished Scanning {MUSIC_DIR}. 🎉")
 
 MUSIC_DIR = UserOptions.MUSIC_DIR
 CAL_DIR = UserOptions.CAL_DIR
