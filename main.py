@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 from flask import Flask, send_file, render_template, abort
 from info import ProgramData
 ProgramData = ProgramData()
