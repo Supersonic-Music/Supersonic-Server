@@ -10,7 +10,7 @@ Simple music server, written in [Python](https://python.org).
 ## To-Do (In order of priority)
 - Proper playlist functionality
 - More fleshed out plugin system
-~~- Discord Rich Presence~~ *This is a client feature...*
+- ~~Discord Rich Presence~~ *This is a client feature...*
 - User Accounts
 - Recommendation Algorithm / Listening History
 - Scrobbling
