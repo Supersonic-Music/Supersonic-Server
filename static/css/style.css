@@ -1,0 +1,41 @@
+body {
+    font-family: sans-serif;
+    background-color: #181a1b;
+    color: white;
+}
+
+h1 {
+    color: transparent;
+    background-image: linear-gradient(to right, white, white);
+    -webkit-background-clip: text;
+    background-clip: text;
+    transition: all 0.9s ease-in-out;
+    display: inline-block;
+    text-decoration: underline;
+}
+
+h1:hover {
+    color: transparent;
+    background-image: linear-gradient(to right, #ff00cc, #3333cc);
+    -webkit-background-clip: text;
+    background-clip: text;
+    letter-spacing: 0.2rem;
+    transition: all 0.9s ease-in-out;
+}
+
+a {
+    color: white;
+    transition: all 0.2s ease-in-out;
+}
+
+a:hover {
+    color: grey;
+}
+
+a:visited {
+    color: white;
+}
+
+a:active {
+    color: rgb(76, 76, 76);
+}

@@ -28,7 +28,7 @@ def serve_music(filename):
 def index():
     artists = os.listdir(MUSIC_DIR)
     PROGRAM_NAME = ProgramData.PROGRAM_NAME
-    return render_template('index.html', artists=artists, PROGRAM_NAME=PROGRAM_NAME)
+    return render_template('index.html', artists=artists, PROGRAM_NAME=PROGRAM_NAME, number_of_artists=stats["number_of_artists"], number_of_albums=stats["number_of_albums"], number_of_songs=stats["number_of_songs"])
 
 # Create a route to list albums for a specific artist
 @app.route('/<artist>/')
@@ -58,5 +58,5 @@ def album_songs(artist, album):
 if __name__ == '__main__':
     if UserOptions.SCAN_COLLECTION_ON_STARTUP == True:
         from scan_music import scan_music
-        scan_music(MUSIC_DIR, CAL_DIR)
+        stats = scan_music(MUSIC_DIR, CAL_DIR)
     app.run(host='0.0.0.0', port=6969)

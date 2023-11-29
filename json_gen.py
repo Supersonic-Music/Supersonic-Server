@@ -26,6 +26,7 @@ def generate_artist_json(MUSIC_DIR, CAL_DIR):
     print(f"✅ Found {len(artist_data)} Artists. 🧑‍🎨") # Found number of artists
     with open(os.path.join(MUSIC_DIR, CAL_DIR, 'meta', 'artists.json'), 'w') as file:  # Save in the "music_index" folder
         json.dump(artist_data, file)
+    return len(artist_data)
 
 # Function to generate a JSON file for albums of a specific artist
 def generate_album_json(artist, MUSIC_DIR, CAL_DIR):

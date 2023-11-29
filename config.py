@@ -3,7 +3,7 @@ from dataclasses import dataclass
 # Choose your desired options below.
 @dataclass
 class UserOptions:
-    MUSIC_DIR = "/home/ethan/Music/"
+    MUSIC_DIR = "/home/deck/Music/"
     CAL_DIR = ".cal"
     PLAYLIST_EXTENSION = ".tardis"
     SCAN_COLLECTION_ON_STARTUP = True

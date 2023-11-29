@@ -1,10 +1,18 @@
-import json_gen, json, os
+import json_gen, json, os, shutil
 from config import UserOptions
 UserOptions = UserOptions()
 
 def scan_music(MUSIC_DIR, CAL_DIR):
+    # see if the CAL_DIR exists, if not, create it. If it does then delete it and then create it
+    if os.path.isdir(os.path.join(MUSIC_DIR, CAL_DIR)):
+        shutil.rmtree(os.path.join(MUSIC_DIR, CAL_DIR))
+    os.mkdir(os.path.join(MUSIC_DIR, CAL_DIR))
+    os.mkdir(os.path.join(MUSIC_DIR, CAL_DIR, 'meta'))
+    os.mkdir(os.path.join(MUSIC_DIR, CAL_DIR, 'albums'))
+    os.mkdir(os.path.join(MUSIC_DIR, CAL_DIR, 'songs'))
+
     # Generate the JSON data for artists
-    json_gen.generate_artist_json(MUSIC_DIR, CAL_DIR)
+    number_of_artists = json_gen.generate_artist_json(MUSIC_DIR, CAL_DIR)
 
     # Read the artists' JSON data into a Python list
     with open(os.path.join(MUSIC_DIR, CAL_DIR, 'meta', 'artists.json'), 'r') as file:
@@ -37,6 +45,12 @@ def scan_music(MUSIC_DIR, CAL_DIR):
     print(f"✅ Found {number_of_songs} Songs. 🎵")
     print(f"✅ Removed UTC timestamps from {utc_removed_fr} songs. 🕒 This behaviour can be disabled in config.py.")
     print(f"✅ Finished Scanning {MUSIC_DIR}. 🎉")
+    stats = {
+        "number_of_artists": number_of_artists, 
+        "number_of_albums": number_of_albums, 
+        "number_of_songs": number_of_songs
+    }
+    return stats
 
 MUSIC_DIR = UserOptions.MUSIC_DIR
 CAL_DIR = UserOptions.CAL_DIR
