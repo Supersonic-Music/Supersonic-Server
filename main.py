@@ -20,7 +20,10 @@ def serve_music(filename):
 
     if not os.path.isfile(music_file):
         return abort(404)  # File not found
-
+    print("User listened to " + music_file)
+    if music_file.rsplit('.', 1)[1] in UserOptions.MUSIC_FILETYPES:
+        with open(UserOptions.LIGHTYEAR_PATH, "a") as song_log:
+            song_log.write(filename + "\n")
     return send_file(music_file)
 
 # Create a route to list artists and their albums
