@@ -10,10 +10,17 @@
          {{ PROGRAM_NAME }} - Music Index </h1>
     <br>
     <h2>Stats</h2>
-    <ul style="border-width: 0.2rem; border-radius: 10px; border-style: solid; display: inline-block; padding-right: 1.6rem;">
+    <h3>Collection Stats</h3>
+    <ul style="border-width: 0.2rem; border-radius: 10px; border-style: solid; display: inline-block; width: 30rem;">
         <b><li><p>Number of Artists:<i> {{ number_of_artists }}</i></p></li></b>
         <b><li><p>Number of Albums:<i> {{ number_of_albums }}</i></p></li></b>
         <b><li><p>Number of Songs:<i> {{ number_of_songs }}</i></p></li></b>
+    </ul>
+    <h3>Lightyear Stats</h3>
+    <ul class="gradient-border" style="border-width: 0.2rem; border-radius: 10px; border-style: solid; display: inline-block; width: 30rem;">
+        <b><li><p>Songs Listened to:<i> {{ lightyear_songs_listened_to }}</i></p></li></b>
+        <b><li><p>Artists Listened to:<i> {{ lightyear_artists_listened_to }}</i></p></li></b>
+        <b><li><p>Albums Listened to:<i> {{ lightyear_albums_listened_to }}</i></p></li></b>
     </ul>
     <h2>Artists</h2>
     <ul>

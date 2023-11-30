@@ -11,8 +11,11 @@ def get_song_length(filename):
     return audio_length_in_minutes
 
 def generate_lightyear_stats(LIGHTYEAR_PATH):
-    with open(LIGHTYEAR_PATH, "r") as song_log:
-        songs = song_log.readlines()
+    if os.path.isfile(LIGHTYEAR_PATH):
+        with open(LIGHTYEAR_PATH, "r") as song_log:
+            songs = song_log.readlines()
+    else:
+        songs = []
     stats = [[{
         "songs_listened_to": len(songs),
         "artists_listened_to": len(set([song.split("/")[0] for song in songs])),
@@ -38,5 +41,3 @@ def generate_lightyear_stats(LIGHTYEAR_PATH):
     for artist in artists:
         print(f"You have listened to {artist['number_of_times_artist_listened_to']} songs by {artist['artist']} from {artist['albums_listened_to']} albums for ~{artist['total_minutes_listened']} minutes in total.")
     return stats
-
-generate_lightyear_stats(UserOptions.LIGHTYEAR_PATH)

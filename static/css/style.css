@@ -39,3 +39,19 @@ a:visited {
 a:active {
     color: rgb(76, 76, 76);
 }
+
+.gradient-border {
+    position: relative;
+}
+
+.gradient-border::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #009dff, #065c5c, #00ff4c, #3333cc);
+    border-radius: 10px;
+    z-index: -1;
+}

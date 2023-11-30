@@ -2,6 +2,7 @@
 
 from flask import Flask, send_file, render_template, abort
 from info import ProgramData
+from lightyear import generate_lightyear_stats
 ProgramData = ProgramData()
 from config import UserOptions
 UserOptions = UserOptions()
@@ -31,7 +32,17 @@ def serve_music(filename):
 def index():
     artists = os.listdir(MUSIC_DIR)
     PROGRAM_NAME = ProgramData.PROGRAM_NAME
-    return render_template('index.html', artists=artists, PROGRAM_NAME=PROGRAM_NAME, number_of_artists=stats["number_of_artists"], number_of_albums=stats["number_of_albums"], number_of_songs=stats["number_of_songs"])
+    return render_template(
+        'index.html', artists=artists, 
+        PROGRAM_NAME=PROGRAM_NAME, 
+        number_of_artists=stats["number_of_artists"], 
+        number_of_albums=stats["number_of_albums"], 
+        number_of_songs=stats["number_of_songs"],
+        lightyear_songs_listened_to=lightyear_stats[0][0]["songs_listened_to"],
+        lightyear_artists_listened_to=lightyear_stats[0][0]["artists_listened_to"],
+        lightyear_albums_listened_to=lightyear_stats[0][0]["albums_listened_to"],
+        lightyear_artists=lightyear_stats[1]
+    )
 
 # Create a route to list albums for a specific artist
 @app.route('/<artist>/')
@@ -62,4 +73,5 @@ if __name__ == '__main__':
     if UserOptions.SCAN_COLLECTION_ON_STARTUP == True:
         from scan_music import scan_music
         stats = scan_music(MUSIC_DIR, CAL_DIR)
+        lightyear_stats = generate_lightyear_stats(UserOptions.LIGHTYEAR_PATH)
     app.run(host='0.0.0.0', port=6969)
