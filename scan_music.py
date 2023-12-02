@@ -5,9 +5,13 @@ UserOptions = UserOptions()
 def scan_music(MUSIC_DIR, CAL_DIR):
     # see if the CAL_DIR exists, if not, create it. If it does then delete it and then create it
     if os.path.isdir(os.path.join(MUSIC_DIR, CAL_DIR)):
-        shutil.rmtree(os.path.join(MUSIC_DIR, CAL_DIR))
-    os.mkdir(os.path.join(MUSIC_DIR, CAL_DIR))
-    os.mkdir(os.path.join(MUSIC_DIR, CAL_DIR, 'meta'))
+        if os.path.isdir(os.path.join(MUSIC_DIR, CAL_DIR, "albums")):
+            shutil.rmtree(os.path.join(MUSIC_DIR, CAL_DIR, "albums"))
+        if os.path.isdir(os.path.join(MUSIC_DIR, CAL_DIR, "songs")):
+            shutil.rmtree(os.path.join(MUSIC_DIR, CAL_DIR, "songs"))
+    else:
+        os.mkdir(os.path.join(MUSIC_DIR, CAL_DIR))
+        os.mkdir(os.path.join(MUSIC_DIR, CAL_DIR, 'meta'))
     os.mkdir(os.path.join(MUSIC_DIR, CAL_DIR, 'albums'))
     os.mkdir(os.path.join(MUSIC_DIR, CAL_DIR, 'songs'))
 

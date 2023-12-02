@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 from flask import Flask, send_file, render_template, abort
+from flask_cors import CORS
 from info import ProgramData
 from lightyear import generate_lightyear_stats
 ProgramData = ProgramData()
@@ -9,6 +10,7 @@ UserOptions = UserOptions()
 import urllib.parse, os
 
 app = Flask(__name__)
+CORS(app)
 
 # Define the directory where your music files are stored
 MUSIC_DIR = UserOptions.MUSIC_DIR

@@ -1,4 +1,4 @@
-#!/home/ethan/git/supersonic-server/venv/bin/python
+#!/home/deck/git/supersonic-server/venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
