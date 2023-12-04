@@ -58,6 +58,12 @@ def artist_albums(artist):
     albums = sorted([item for item in os.listdir(artist_dir) if os.path.isdir(os.path.join(artist_dir, item))])
     return render_template('artist_albums.html', artist=artist, albums=albums)
 
+@app.route('/lightyear/')
+def lightyear():
+    PROGRAM_NAME = ProgramData.PROGRAM_NAME
+    print(lightyear_stats)
+    return render_template('lightyear.html', PROGRAM_NAME=PROGRAM_NAME, songs_listened_to=lightyear_stats[0][0]['songs_listened_to'], albums_listened_to=lightyear_stats[0][0]['albums_listened_to'], artists_listened_to=lightyear_stats[0][0]['artists_listened_to'], artists=lightyear_stats[1])
+
 # Create a route to list songs for a specific album
 @app.route('/<artist>/<album>/')
 def album_songs(artist, album):

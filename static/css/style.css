@@ -1,7 +1,16 @@
+@font-face {
+    font-family: "Raleway";
+    src: url("../fonts/Raleway-VariableFont_wght.ttf");
+}
+
 body {
-    font-family: sans-serif;
+    font-family: Raleway;
     background-color: #181a1b;
     color: white;
+}
+
+.num {
+    font-family: sans-serif;
 }
 
 h1 {
