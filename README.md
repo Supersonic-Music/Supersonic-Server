@@ -1,5 +1,5 @@
 # Supersonic Server
-Simple music server, written in [Python](https://python.org).
+Simple music server, written in [Python](https://python.org). It also can manage your videos, pictures, 3D models and more for you.
 ## Features
 - Supersonic Server has been thoroughly tested to work with thousands of songs well...ish.
 - Works well on Linux, Windows and MacOS. See list of tested systems [here](https://sonic.davros.io/getting-started/supported-systems/).
