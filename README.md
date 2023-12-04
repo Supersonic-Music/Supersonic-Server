@@ -16,8 +16,8 @@ Simple music server, written in [Python](https://python.org).
 - Recommendation Algorithm / Listening History
 - Scrobbling
 ## Clients
-### [paperback](https://github.com/yuckdevchan/paperback)
-Paperback is a simple [Supersonic Server](https://github.com/yuckdevchan/Supersonic-Server) client that's made by me. It is not feature-packed but it does one thing and one thing alright.
+### [Supersonic Desktop](https://github.com/Supersonic-Music/Supersonic-Desktop)
+Supersonic Desktop is a simple [Supersonic Server](https://github.com/yuckdevchan/Supersonic-Server) client that's made by me. It is not feature-packed but it does one thing and one thing alright.
 ### [clown-tunes](https://github.com/circus-real/clown-tunes.)
 Clown Tunes is a web-based CAL viewer with lightweight music playback capability. It's feature-set is akin to the built-in web UI but in the form of a [Supersonic Server](https://github.com/yuckdevchan/Supersonic-Server) client. A live demo that uses the [Public Server](http://atomic123.pythonanywhere.com) can be found [here]().
 ## Licensing
