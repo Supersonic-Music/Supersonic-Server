@@ -5,6 +5,7 @@ Simple music server, written in [Python](https://python.org).
 - Works well on Linux, Windows and MacOS. See list of tested systems [here](https://sonic.davros.io/getting-started/supported-systems/).
 - Hosts a minimal Web UI for admin purposes and for checking the music index is correct.
 - Easily hackable. You can change almost anything about this program.
+- Reports listening statistics / habits.
 ## Caveats
 - Does **not** work with the [*Raspberry Pi*](https://www.raspberrypi.com/) because of upstream issues with [pillow](https://pypi.org/project/Pillow/).
 ## To-Do (In order of priority)
