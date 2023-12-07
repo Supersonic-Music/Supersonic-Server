@@ -82,4 +82,5 @@ if __name__ == '__main__':
         from scan_music import scan_music
         stats = scan_music(MUSIC_DIR, CAL_DIR)
         lightyear_stats = generate_lightyear_stats(UserOptions.LIGHTYEAR_PATH)
-    app.run(host='0.0.0.0', port=6969)
+    from waitress import serve
+    serve(app=app, host="0.0.0.0", port=6969)
