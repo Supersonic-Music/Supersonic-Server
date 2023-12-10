@@ -66,7 +66,7 @@ def generate_songs_json(artist, album, MUSIC_DIR, CAL_DIR, number_of_songs):
         elif song.startswith("Thumbs") and song.endswith(".db"):
             pass
         else:
-            name = song.split(".")[0]
+            name = song.rsplit(".", 1)[0]
             if name.endswith(" UTC)") and config.UserOptions.AUTO_REMOVE_UTC_TIMESTAMP:
                 name = name.rsplit(' (', -1)[0]
                 utc_removed += 1
