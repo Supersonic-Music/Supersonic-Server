@@ -39,7 +39,7 @@ def generate_lightyear_stats(LIGHTYEAR_PATH):
                 }
                 artists.append(artist_data)
     stats.append(artists)
-    print(f"You have listened to {stats[0][0]['songs_listened_to']} songs by {stats[0][0]['artists_listened_to']} artists from {stats[0][0]['albums_listened_to']} albums.")
+    print(f"🎧 You have listened to {stats[0][0]['songs_listened_to']} songs by {stats[0][0]['artists_listened_to']} artists from {stats[0][0]['albums_listened_to']} albums.")
     print("")
     for artist in artists:
         print(f"You have listened to {artist['number_of_times_artist_listened_to']} songs by {artist['artist']} from {artist['albums_listened_to']} albums for ~{artist['total_minutes_listened']} minutes in total.")
