@@ -1,12 +1,14 @@
 from dataclasses import dataclass
 from os import path
+from info import auto_user_music
 import subprocess
 
 # Choose your desired options below.
 @dataclass
-class UserOptions: 
+class UserOptions:
     newlines = "\n"
-    MUSIC_DIR = f"/home/{subprocess.check_output('echo $USER', shell=True, text=True).strip(newlines)}/Music/"
+    MUSIC_DIR = auto_user_music # Comment out this line and manually set below to use custom directory...
+    # MUSIC_DIR = "path/to/your/music" # This must be the directory above all your artists.
     CAL_DIR = ".cal"
     LIGHTYEAR_PATH = path.join(MUSIC_DIR, CAL_DIR, "meta", "lightyear.txt")
     PLAYLIST_EXTENSION = ".tardis"
