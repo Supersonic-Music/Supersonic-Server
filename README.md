@@ -6,8 +6,7 @@ Simple music server, written in [Python](https://python.org). It is mainyl desig
 - Hosts a minimal Web UI for admin purposes and for checking the music index is correct.
 - Easily hackable. You can change almost anything about this program.
 - Reports listening statistics / habits.
-## Caveats
-- Does **not** work with the [*Raspberry Pi*](https://www.raspberrypi.com/) because of upstream issues with [pillow](https://pypi.org/project/Pillow/).
+- Works on the Raspberry Pi
 ## To-Do (In order of priority)
 - Proper playlist functionality
 - More fleshed out plugin system
