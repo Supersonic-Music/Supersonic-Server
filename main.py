@@ -2,12 +2,13 @@
 
 from flask import Flask, send_file, render_template, abort
 from flask_cors import CORS
+from colorama import Fore
 from info import ProgramData
 from lightyear import generate_lightyear_stats
 ProgramData = ProgramData()
 from config import UserOptions
 UserOptions = UserOptions()
-import urllib.parse, os, jsonify
+import urllib.parse, os, jsonify, socket
 
 app = Flask(__name__)
 CORS(app)
@@ -96,4 +97,7 @@ if __name__ == '__main__':
         stats = scan_music(MUSIC_DIR, CAL_DIR)
         lightyear_stats = generate_lightyear_stats(UserOptions.LIGHTYEAR_PATH)
     from waitress import serve
+    hostname = socket.gethostname()
+    IPAddr = socket.gethostbyname(hostname)
+    print(f"🌐 Visit the Web Management Interface at:\n➡️ {Fore.LIGHTBLUE_EX}{UserOptions.protocol}://{Fore.WHITE}localhost{Fore.LIGHTBLUE_EX}:6969\n➡️ {UserOptions.protocol}://{Fore.WHITE}{IPAddr}{Fore.LIGHTBLUE_EX}:6969")
     serve(app=app, host="0.0.0.0", port=6969)

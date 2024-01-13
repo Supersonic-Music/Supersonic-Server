@@ -7,6 +7,7 @@ import subprocess
 # Choose your desired options below.
 @dataclass
 class UserOptions:
+    protocol = "http"
     newlines = "\n"
     MUSIC_DIR = ProgramData.auto_user_music # Comment out this line and manually set below to use custom directory...
     # MUSIC_DIR = "path/to/your/music" # This must be the directory above all your artists.
