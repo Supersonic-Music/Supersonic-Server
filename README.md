@@ -20,4 +20,4 @@ Supersonic Desktop is a simple [Supersonic Server](https://github.com/yuckdevcha
 ### [clown-tunes](https://github.com/circus-real/clown-tunes.)
 Clown Tunes is a web-based CAL viewer with lightweight music playback capability. It's feature-set is akin to the built-in web UI but in the form of a [Supersonic Server](https://github.com/yuckdevchan/Supersonic-Server) client. A live demo that uses the [Public Server](http://atomic123.pythonanywhere.com) can be found [here]().
 ## Licensing
-Remember, Supersonic Server is **Free Software**. You may modify, distribute and use Sonic Screwdriver for commercial purposes but you must retain the [**LICENSE**](https://spdx.org/licenses/MIT.html) included with the program. See [**LICENSE**](https://spdx.org/licenses/MIT.html) for more details.
+Remember, Supersonic Server is **Free Software**. You may modify, distribute and use Supersonic Server for commercial purposes but you must retain the [**LICENSE**](https://spdx.org/licenses/MIT.html) included with the program. See [**LICENSE**](https://spdx.org/licenses/MIT.html) for more details.
