@@ -1,0 +1,12 @@
+[songs]
+    [songs.1]
+    title = "Flawless Wings of Yatagarsu"
+    artist = ".Newgrounds Music.sonic"
+    album = "Geometry Dash"
+    uri = "https://www.youtube.com/watch?v=K5PoQMbchh0"
+
+    [songs.2]
+    title = "The Seven Seas"
+    artist = ".Newgrounds Music.sonic"
+    album = "Geometry Dash"
+    uri = "https://www.youtube.com/watch?v=DsemU6yb7hA"
