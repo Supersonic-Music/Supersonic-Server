@@ -1,4 +1,4 @@
-import os, json, config.config as config
+import os, json, tomllib, config.config as config
 
 # Function to generate a JSON file for artists
 def generate_artist_json(MUSIC_DIR, CAL_DIR):
@@ -61,9 +61,9 @@ def generate_songs_json(artist, album, MUSIC_DIR, CAL_DIR, number_of_songs):
     utc_removed = 0
     for song in songs:
         number_of_songs += 1
-        if song.startswith("desktop") and song.endswith(".ini"):
+        if song.startswith("desktop") and song.endswith(".ini") and config.UserOptions.IGNORE_DESKTOP_INI:
             pass
-        elif song.startswith("Thumbs") and song.endswith(".db"):
+        elif song.startswith("Thumbs") and song.endswith(".db") and config.UserOptions.IGNORE_THUMBS_DB:
             pass
         else:
             name = song.rsplit(".", 1)[0]
@@ -71,6 +71,7 @@ def generate_songs_json(artist, album, MUSIC_DIR, CAL_DIR, number_of_songs):
                 name = name.rsplit(' (', -1)[0]
                 utc_removed += 1
             song_data.append({'name': name, 'path': song, 'uri': f'$SERVER/{artist}/{album}/{song}'})
+        
     with open(os.path.join(MUSIC_DIR, CAL_DIR, 'songs', f'{artist}_{album}_songs.json'), 'w') as file:  # Save in the "music_index" folder
         json.dump(song_data, file)
     song_stats = [utc_removed, number_of_songs]

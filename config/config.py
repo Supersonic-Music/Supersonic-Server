@@ -17,7 +17,9 @@ class UserOptions:
     SCAN_COLLECTION_ON_STARTUP = True
     
     # Formatting Options
-    AUTO_REMOVE_UTC_TIMESTAMP = True
+    AUTO_REMOVE_UTC_TIMESTAMP = True # Automatically remove UTC timestamps from the end of song names
+    IGNORE_THUMBS_DB = True # Ignore Windows Thumbnail Database files.
+    IGNORE_DESKTOP_INI = True # Ignore Windows Desktop.ini files.
 
     # Filetype Options
     MUSIC_FILETYPES = [

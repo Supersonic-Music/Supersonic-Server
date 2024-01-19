@@ -8,7 +8,7 @@ from lightyear import generate_lightyear_stats
 ProgramData = ProgramData()
 from config.config import UserOptions
 UserOptions = UserOptions()
-import urllib.parse, os, jsonify, socket
+import urllib.parse, os, jsonify, socket, time
 
 app = Flask(__name__)
 CORS(app)
@@ -94,7 +94,13 @@ def album_songs(artist, album):
 if __name__ == '__main__':
     if UserOptions.SCAN_COLLECTION_ON_STARTUP == True:
         from scan_music import scan_music
+        start_time = time.time()
         stats = scan_music(MUSIC_DIR, CAL_DIR)
+        end_time = time.time()
+        time_taken = str(round(end_time - start_time, 2))
+        if time_taken.endswith(".0"):
+            time_taken = time_taken[:-2]
+        print(f"✅ Scanned music collection in {time_taken} seconds.")
         lightyear_stats = generate_lightyear_stats(UserOptions.LIGHTYEAR_PATH)
     from waitress import serve
     hostname = socket.gethostname()

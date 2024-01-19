@@ -1,8 +1,11 @@
-import json_gen, json, os, shutil
+import json_gen, json, os, shutil, tomllib
+from hypersongs import is_in_hypersongs
 from config.config import UserOptions
 UserOptions = UserOptions()
 
 def scan_music(MUSIC_DIR, CAL_DIR):
+    with open(os.path.join('config', 'hypersongs.toml'), 'rb') as hypersongs_file:
+        hypersongs = tomllib.load(hypersongs_file)
     # see if the CAL_DIR exists, if not, create it. If it does then delete it and then create it
     if os.path.isdir(os.path.join(MUSIC_DIR, CAL_DIR)):
         if os.path.isdir(os.path.join(MUSIC_DIR, CAL_DIR, "albums")):
@@ -39,10 +42,13 @@ def scan_music(MUSIC_DIR, CAL_DIR):
         # Extract the album names from the JSON data
         list_of_albums = [album['name'] for album in albums_data]
         for album in list_of_albums:
+            if is_in_hypersongs(hypersongs, artist, album):
+                pass
             number_of_albums += 1
             # Generate the JSON data for songs of each album
-            utc_removed_fr += json_gen.generate_songs_json(artist, album, MUSIC_DIR, CAL_DIR, number_of_songs)[0]
-            number_of_songs = json_gen.generate_songs_json(artist, album, MUSIC_DIR, CAL_DIR, number_of_songs)[1]
+            thing = json_gen.generate_songs_json(artist, album, MUSIC_DIR, CAL_DIR, number_of_songs)
+            utc_removed_fr += thing[0]
+            number_of_songs = thing[1]
     with open(os.path.join(MUSIC_DIR, CAL_DIR, 'meta', 'albums.json'), 'w') as albums_meta_file:
         json.dump(all_albums, albums_meta_file)
     print(f"✅ Found {number_of_albums} Albums. 💿")
