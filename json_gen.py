@@ -70,7 +70,7 @@ def generate_songs_json(artist, album, MUSIC_DIR, CAL_DIR, number_of_songs):
             if name.endswith(" UTC)") and config.UserOptions.AUTO_REMOVE_UTC_TIMESTAMP:
                 name = name.rsplit(' (', -1)[0]
                 utc_removed += 1
-            song_data.append({'name': name, 'path': song})
+            song_data.append({'name': name, 'path': song, 'uri': f'$SERVER/{artist}/{album}/{song}'})
     with open(os.path.join(MUSIC_DIR, CAL_DIR, 'songs', f'{artist}_{album}_songs.json'), 'w') as file:  # Save in the "music_index" folder
         json.dump(song_data, file)
     song_stats = [utc_removed, number_of_songs]
