@@ -1,5 +1,5 @@
 import json_gen, json, os, shutil
-from config import UserOptions
+from config.config import UserOptions
 UserOptions = UserOptions()
 
 def scan_music(MUSIC_DIR, CAL_DIR):

@@ -1,4 +1,4 @@
-import os, json, config
+import os, json, config.config as config
 
 # Function to generate a JSON file for artists
 def generate_artist_json(MUSIC_DIR, CAL_DIR):

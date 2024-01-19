@@ -6,7 +6,7 @@ from colorama import Fore
 from info import ProgramData
 from lightyear import generate_lightyear_stats
 ProgramData = ProgramData()
-from config import UserOptions
+from config.config import UserOptions
 UserOptions = UserOptions()
 import urllib.parse, os, jsonify, socket
 
