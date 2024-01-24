@@ -1,5 +1,4 @@
 import json_gen, json, os, shutil, tomllib
-from hypersongs import is_in_hypersongs
 from config.config import UserOptions
 UserOptions = UserOptions()
 
@@ -42,8 +41,6 @@ def scan_music(MUSIC_DIR, CAL_DIR):
         # Extract the album names from the JSON data
         list_of_albums = [album['name'] for album in albums_data]
         for album in list_of_albums:
-            if is_in_hypersongs(hypersongs, artist, album):
-                pass
             number_of_albums += 1
             # Generate the JSON data for songs of each album
             thing = json_gen.generate_songs_json(artist, album, MUSIC_DIR, CAL_DIR, number_of_songs)

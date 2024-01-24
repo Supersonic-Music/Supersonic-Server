@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-from flask import Flask, send_file, render_template, abort
+from flask import Flask, send_file, render_template, abort, jsonify
 from flask_cors import CORS
 from colorama import Fore
 from info import ProgramData
@@ -8,7 +8,7 @@ from lightyear import generate_lightyear_stats
 ProgramData = ProgramData()
 from config.config import UserOptions
 UserOptions = UserOptions()
-import urllib.parse, os, jsonify, socket, time
+import urllib.parse, os, socket, time
 
 app = Flask(__name__)
 CORS(app)
