@@ -5,17 +5,19 @@ from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 users = {
     "pilot": {
         "password": "rubrub123",  # replace with actual hashed password
-        "name": "pilot"
+        "name": "pilot",
     }
 }
 
+
 def generate_token(secret_key, user):
     s = Serializer(secret_key, expires_in=3600)
-    return s.dumps({'user': user}).decode('utf-8')
+    return s.dumps({"user": user}).decode("utf-8")
+
 
 def authenticate(secret_key, username, password):
     user = users.get(username)
-    if user and check_password_hash(user['password'], password):
-        return generate_token(secret_key, user['name'])
+    if user and check_password_hash(user["password"], password):
+        return generate_token(secret_key, user["name"])
     else:
         return None
