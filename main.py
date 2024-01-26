@@ -22,18 +22,6 @@ CAL_DIR = UserOptions.CAL_DIR
 app.config["SECRET_KEY"] = "rubrub123"
 
 
-@app.route("/Users/AuthenticateByName", methods=["POST"])
-def authenticate_endpoint():
-    data = request.get_json()
-    username = data.get("Username")
-    password = data.get("Pw")
-    token = authenticate(app.config["SECRET_KEY"], username, password)
-    if token is not None:
-        return jsonify({"AccessToken": token}), 200
-    else:
-        return jsonify({"error": "Invalid credentials"}), 401
-
-
 # Create a route to serve music files
 @app.route("/music/<path:filename>")
 def serve_music(filename):
