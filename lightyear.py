@@ -1,7 +1,6 @@
 import os
 from config.config import UserOptions
 from mutagen.mp3 import MP3
-import os
 
 UserOptions = UserOptions()
 
