@@ -11,9 +11,7 @@ import subprocess
 class UserOptions:
     protocol = "http"
     newlines = "\n"
-    MUSIC_DIR = (
-        ProgramData.auto_user_music
-    )  # Comment out this line and manually set below to use custom directory...
+    MUSIC_DIR = "C:/Users/ethan/Music"
     # MUSIC_DIR = "path/to/your/music" # This must be the directory above all your artists.
     CAL_DIR = ".cal"
     LIGHTYEAR_PATH = path.join(MUSIC_DIR, CAL_DIR, "meta", "lightyear.txt")
@@ -26,6 +24,11 @@ class UserOptions:
     )
     IGNORE_THUMBS_DB = True  # Ignore Windows Thumbnail Database files.
     IGNORE_DESKTOP_INI = True  # Ignore Windows Desktop.ini files.
+
+    IGNORED_FILES = [
+            'Thumbs.db', 
+            'desktop.ini', 
+    ]
 
     # Filetype Options
     MUSIC_FILETYPES = [

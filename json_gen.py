@@ -1,5 +1,6 @@
 import os, json, tomllib, config.config as config
-
+from config.config import UserOptions
+UserOptions = UserOptions()
 
 # Function to generate a JSON file for artists
 def generate_artist_json(MUSIC_DIR, CAL_DIR):
@@ -8,13 +9,14 @@ def generate_artist_json(MUSIC_DIR, CAL_DIR):
     plugins = []
     artist_data = []
     for artist in artists:
-        artist_data.append({"name": artist})  # Corrected line
-        if artist.startswith(".") or artist.endswith(".sonic"):
-            plugins.append(artist)
-        if artist == "Playlists":
-            found_playlists = True
-        else:
-            found_playlists = False
+        if artist not in UserOptions.IGNORED_FILES:
+            artist_data.append({"name": artist})  # Corrected line
+            if artist.startswith(".") or artist.endswith(".sonic"):
+                plugins.append(artist)
+            if artist == "Playlists":
+                found_playlists = True
+            else:
+                found_playlists = False
     start_of_list_ish = 0
     for plugin in plugins:
         artist_data.remove({"name": plugin})

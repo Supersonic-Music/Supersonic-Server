@@ -1,4 +1,4 @@
-#!/home/ethan/git/Supersonic-Server/venv/bin/python
+#!/home/ethan/Supersonic-Server/venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
