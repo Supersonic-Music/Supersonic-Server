@@ -47,11 +47,11 @@ def scan_music(MUSIC_DIR, CAL_DIR):
         for album in list_of_albums:
             number_of_albums += 1
             # Generate the JSON data for songs of each album
-            thing = json_gen.generate_songs_json(
+            song_stats = json_gen.generate_songs_json(
                 artist, album, MUSIC_DIR, CAL_DIR, number_of_songs
             )
-            utc_removed_fr += thing[0]
-            number_of_songs = thing[1]
+            utc_removed_fr += song_stats[0]
+            number_of_songs = song_stats[1]
     with open(
         os.path.join(MUSIC_DIR, CAL_DIR, "meta", "albums.json"), "w"
     ) as albums_meta_file:
