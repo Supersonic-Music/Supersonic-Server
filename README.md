@@ -1,3 +1,4 @@
+# Outdated and bad, 2.0 will replace this source code.
 # Supersonic Server
 Simple music server, written in [Python](https://python.org). It is mainyl designed for music but it can also can manage your videos, pictures, 3D models and more for you.
 ## Features
